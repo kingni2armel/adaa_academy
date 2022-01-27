@@ -16,17 +16,17 @@ class PraticalWorkController extends Controller
 
     public function CreatePraticalWork(Request $request,$id)
     {
-                    $id=$_GET($id); 
+                  //  $id=$_GET($id); 
                     $request->validate([
                     'intitule' => ['required','min:5','max:300'],
                     'datecreation'=>['required'],
                     ]);
-                PraticalWork::create([
-                    'session_id'=>$id,
-                    'intitule'=>$request->intitule,
-                    'date'=>$request->datecreation,
-                
-                ]);
+                    PraticalWork::create([
+                        'session_id'=>$id,
+                        'intitule'=>$request->intitule,
+                        'date'=>$request->datecreation,
+                    
+                    ]);
     }
 
     

@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Session extends Model
 {
     use HasFactory;
+  
+    protected $fillable = [
+        'intitule',
+        'commentaire',
+        'date_debut',
+        'date_fin'
+    ];
 }

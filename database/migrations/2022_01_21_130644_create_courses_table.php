@@ -20,7 +20,7 @@ class CreateCoursesTable extends Migration
 
             $table->text('commentaire');
             
-            $table->timestamps();
+            $table->timestamps();                               
         });
     }
 

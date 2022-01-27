@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class PraticalWork extends Model
 {
+    protected $fillable = [
+        'intitule',
+        'session_id',
+        'date',
+    ];
     use HasFactory;
 }

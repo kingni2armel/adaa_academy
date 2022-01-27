@@ -16,7 +16,7 @@ class CreateSessionsTable extends Migration
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
             $table->string('intitule');
-            $table->text('commentaire');
+            $table->text('');
             $table->date('date_debut');
             $table->date('date_fin');
             $table->timestamps();

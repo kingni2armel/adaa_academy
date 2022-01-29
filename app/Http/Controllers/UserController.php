@@ -26,5 +26,7 @@ class UserController extends Controller
                         return redirect()->back()->withErrors('Les identifiants ne correspondent pas'); 
 
                     }
+
+                    
                 
 }

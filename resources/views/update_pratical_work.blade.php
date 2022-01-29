@@ -1,5 +1,5 @@
 
-<h1>Creation d'un travail pratique</h1>
+<h1>Modification d'un travail pratique</h1>
         @if($errors->any()){
             @foreach($errors->all() as $error)
                  <div class="text-red-500">
@@ -10,12 +10,12 @@
 
     @endif
 
-        <form action="{{route('CreatePraticalWork',['id'=>$id=$_GET['id']])}}" method="post">
+        <form action="{{route('UpdatePraticalWork',['id'=>$id=$_GET['id']])}}" method="post">
                   @csrf
                             <textarea  name="intitule" id="" cols="30" rows="10">
                             
                             </textarea> <br>
-                                <input type="date" name="datecreation" id=""><br>
+                                <input type="date" name="dateModification" id=""><br>
 
                             <button type="submit">Creer</button>
 

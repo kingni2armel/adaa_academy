@@ -5,6 +5,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PraticalWorkController;
+use App\Http\Controllers\CourseController;
+use App\Http\Controllers\StudentController;
+
 
 
 /*
@@ -23,11 +26,18 @@ Route::get('/', function () {
 });
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// les routes  de l'utilisateur
+
+
+/*
+ les routes  de l'utilisateur
+*/
+
 Route::post('authenticate',[UserController::class,'authenticate'])->name('authenticate');
 Route::get('login',[UserController::class,'login'])->name('login');
 
-// les controlleurs de la sesssion
+/*
+    les controlleurs de la sesssion
+*/
 
 Route::get('session',[SessionController::class,'session'])->name('session');
 Route::post('session',[SessionController::class,'createSession'])->name('CreateSession');
@@ -35,12 +45,35 @@ Route::get('listesession',[SessionController::class,'GetAllSession'])->name('lis
 Route::get('update',[SessionController::class,'show'])->name('show');
 Route::post('update/{id}',[SessionController::class,'UpdateSession'])->name('UpdateSession');
 
-// les controlleurs des travaux pratiques
+/*
+   les controlleurs des travaux pratiques
+*/
 
 Route::get('create',[PraticalWorkController::class,'indexx'])->name('indexx');
 Route::post('create/{id}',[PraticalWorkController::class,'CreatePraticalWork'])->name('CreatePraticalWork');
+Route::get('UpdateSession',[PraticalWorkController::class,'GetPageUpdate'])->name('GetPageUpdate');
+Route::get('listetravauxpratique',[PraticalWorkController::class,'GetListePraticalWork'])->name('GetListePraticalWork');
+Route::get('listetravauxpratique/{id}',[PraticalWorkController::class,'GetListePraticalOFid'])->name('GetListePraticalOFid');
+Route::get('updatetravauxpratique',[PraticalWorkController::class,'GetPageUpdatePraticalWork'])->name('GetPageUpdatePraticalWork');
+Route::post('updatetravauxpratique/{id}',[PraticalWorkController::class,'UpdatePraticalWork'])->name('UpdatePraticalWork');
 
+/*
+    les controleurs des courses 
+*/
 
+Route::get('creation',[CourseController::class,'GetPage'])->name('GetPage');
+Route::post('creation',[CourseController::class,'CreateCourse'])->name('CreateCourse');
+Route::get('listecour',[CourseController::class,'GetListeCourse'])->name('GetListeCourse');
+Route::get('modification',[CourseController::class,'GetPageUpdateCourse'])->name('GetPageUpdateCourse');
+Route::post('modification/{id}',[CourseController::class,'UpdateCourse'])->name('UpdateCourse');
+
+/*
+    les controleurs des  students 
+*/
+
+Route::get('addstudent',[StudentController::class,'GetPageCreateStudent'])->name('GetPageCreateStudent');
+Route::post('addstudent',[StudentController::class,'CreateStudent'])->name('CreateStudent');
+Route::get('listestudent',[StudentController::class,'GetListeStudent'])->name('GetListeStudent');
 
 
 Route::get('dashboard',DashboardController::class)->name('dashboard');

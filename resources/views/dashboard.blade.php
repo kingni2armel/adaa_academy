@@ -7,9 +7,16 @@
         </form>
 
         Se deconnecter
-</a>
+</a><br>
 
 
-        <a href="{{url('/session')}} ">Creer une session</a>
-        <a href="{{url('/listesession')}} ">Liste des sessions</a>
+        <a href="{{url('/session')}} ">Creer une session</a><br>
+        <a href="{{url('/listesession')}} ">Liste des sessions</a><br>
+        <a href="{{url('/creation')}} ">Creer un cour</a><br>
+        <a href="{{url('listecour')}}">liste des cours</a><br>
+        <a href="{{url('addstudent')}}">Creer un etudiant</a><br>
+        <a href="{{url('listestudent')}}">Liste des etudiants</a>
+
+
+
 

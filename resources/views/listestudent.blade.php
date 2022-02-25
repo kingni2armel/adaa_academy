@@ -13,10 +13,14 @@
                 @foreach($listestudent as $liste)
 
                                 <h3>{{$liste->name}}</h3>
+                                <form action="{{route('DeleteStudent',['id'=>$liste->id])}}" method="post">
+                                   @csrf      
+                                   <button type="submit">Supprimer</button>
+                                </form>
 
                        @endforeach
             @else
-                <span>Aucun pratical work en base de donnee</span>
+                <span>Aucun etudiant en base de donnee</span>
             @endif
 
 

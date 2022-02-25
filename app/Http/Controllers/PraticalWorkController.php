@@ -58,8 +58,9 @@ class PraticalWorkController extends Controller
         */   
 
 
-                public function GetListePraticalOFid($id)
+                public function GetListePraticalOFid()
                 {
+                            $id = $_GET['id'];
                             $listeTravauxPratique = PraticalWork::where('session_id',$id)->get();
                             return view('listetravaux',['listetravauxpratique'=>$listeTravauxPratique]);
                     }

@@ -14,6 +14,10 @@
 
                                 <h3>{{$liste->nom}}</h3>
                                 <a href="{{route('GetPageUpdateCourse',['id'=>$liste->id])}}">Modifier</a>
+                                <form action="{{route('DeleteCourse',['id'=>$liste->id])}}" method="post">
+                                    @csrf       
+                                <button type="submit">Supprimer</button>
+                                </form>
 
                        @endforeach
             @else

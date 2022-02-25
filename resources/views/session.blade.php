@@ -1,5 +1,4 @@
 
-        <h1>coucou {{auth()->user()->name}}</h1>
 <a href="#" onclick="document.getElementById('logout-form').submit()">
 
 
@@ -25,13 +24,22 @@
 
         <form action="{{route('CreateSession')}}" method="post">
             @csrf
+                        <p>nom</p>
                     <input type="text" name="intitule" id=""><br>
+                    <p>commentaire</p>
                     <textarea  name="commentaire" id="" cols="30" rows="10">
                         
-                        </textarea> <br>
+                     </textarea> <br>
+                <p>date debut</p>
                     <input type="date" name="date_debut" id=""><br>
+                <p>date fin</p>
                     <input type="date" name="date_fin" id=""><br>
-
+                    <p>cour</p>
+                <select name="cour" id="">
+                        @foreach($course as $listecour)
+                                        <option value="{{$listecour->id}}">{{$listecour->nom}}</option>
+                        @endforeach
+                </select>
                     <button type="submit">Creer</button>
 
 

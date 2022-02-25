@@ -4,17 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Session;
+use App\Models\Course;
 
 class SessionController extends Controller
 {
 
 
             /*
-                function qui renvoie la page de creation d'une session
+                function qui renvoie la page de creation d'une session avec la liste des cours
              */
 
                 public function session(){
-                    return view('session');
+                    $cour = Course::all();
+                    return view('session',['course'=>$cour]);
                 }
 
 
@@ -29,6 +31,7 @@ class SessionController extends Controller
                                 'commentaire'=>['required','min:5','max:10000',],
                                 'date_debut'=>['required'],
                                 'date_fin'=>['required'],
+                                'cour'=>['required']
 
                             ]);
                             Session::create([
@@ -36,6 +39,7 @@ class SessionController extends Controller
                                 'commentaire'=>$request->commentaire,
                                 'date_debut'=>$request->date_debut,
                                 'date_fin'=>$request->date_fin,
+                                'course_id'=>$request->cour
 
                             ]);
                     //     return $request->input();

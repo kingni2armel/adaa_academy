@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Dayli extends Model
 {
     use HasFactory;
+     protected $fillable=[
+        'course_id',
+        'session_id',
+        'date'
+    ];
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Course;
 
+
 class CourseController extends Controller
 {
     //
@@ -88,9 +89,32 @@ class CourseController extends Controller
                 funtion    qui permet d'avoir tout la liste des cours presents dans la base de donnee
     */
 
+    public function GetListeCourses()
+    {
+         return  $listeCourses= Course::all();
+    }
+
+    /*
+                funtion    qui permet d'avoir tout la liste des cours presents dans la base de donnee et envoyer a la page
+    */
+
     public function GetListeCourse()
     {
             $listeCourse= Course::all();
             return view('listecours',['listecours'=>$listeCourse]);
     }
+
+    /*
+        function qui permet de supprimer un cour
+    */
+
+
+    public function DeleteCourse(Request $request,$id){
+         $course = Course::find($id);
+         $course->delete();
+      //  return view('listecours');
+    }
+
+
+ 
 }

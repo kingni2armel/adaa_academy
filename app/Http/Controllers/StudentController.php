@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\Student;
 use App\Models\User;
@@ -34,7 +34,7 @@ class StudentController extends Controller
                 $user= User::create([
                         'name'=>$request->name,
                         'email'=>$request->email,
-                        'password'=>$request->password
+                        'password'=> Hash::make($request->password)
                     ]);
  
                 Student::create([ 
@@ -46,7 +46,7 @@ class StudentController extends Controller
         }
 
         /*
-                        function qui permet de renvoyer la liste des etudiants present dans le systeme
+          function qui permet de renvoyer la liste des etudiants present dans le systeme
                         
         */
         public function GetListeStudent(){
@@ -57,6 +57,17 @@ class StudentController extends Controller
             return view('listestudent',['listestudent'=>$listUserStudent]);
         }
 
+
+         /*
+                        function pour la suppresion d'un etudiant
+
+         */
+
+             public function DeleteStudent(Request $request,$id){
+                
+                        $student = Student::where('user_id',$id)->delete();
+
+         }
 
     
     

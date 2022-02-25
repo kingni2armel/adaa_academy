@@ -25,8 +25,12 @@ class UserController extends Controller
                                    }
                         return redirect()->back()->withErrors('Les identifiants ne correspondent pas'); 
 
-                    }
-
+                                }
+                        
+                public function  DeleteUser($id){
+                            $user= User::find($id);
+                            $user->delete();
+                }
                     
                 
 }

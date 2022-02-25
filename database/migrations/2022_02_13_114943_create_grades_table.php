@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDaylisTable extends Migration
+class CreateGradesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,19 @@ class CreateDaylisTable extends Migration
      */
     public function up()
     {
-        Schema::create('daylis', function (Blueprint $table) {
-            $table->unsignedBigInteger('course_id');
-            $table->foreign('course_id')->references('id')->on('courses')
+        Schema::create('grades', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('travaux_id');
+            $table->foreign('travaux_id')->references('id')->on('pratical_works')
             ->onDelete('cascade')
             ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('session_id');
-            $table->foreign('session_id')->references('id')->on('sessions')
+            $table->unsignedBigInteger('student_id');
+            $table->foreign('student_id')->references('id')->on('students')
             ->onDelete('cascade')
             ->onUpdate('cascade');
-
-            $table->date('date');
             
+            $table->float('valeur');
             $table->timestamps();
         });
     }
@@ -37,6 +37,6 @@ class CreateDaylisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('daylis');
+        Schema::dropIfExists('grades');
     }
 }

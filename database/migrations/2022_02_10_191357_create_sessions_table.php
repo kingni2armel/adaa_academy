@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateSessionsTable extends Migration
 {
-    /**
+    /**isaiiiiii
      * Run the migrations.
      *
      * @return void
@@ -15,8 +15,12 @@ class CreateSessionsTable extends Migration
     {
         Schema::create('sessions', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('course_id');
+            $table->foreign('course_id')->references('id')->on('courses')
+            ->onDelete('cascade')
+            ->onUpdate('cascade');
             $table->string('intitule');
-            $table->text('');
+            $table->text('commentaire');
             $table->date('date_debut');
             $table->date('date_fin');
             $table->timestamps();

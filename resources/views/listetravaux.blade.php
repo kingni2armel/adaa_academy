@@ -15,10 +15,12 @@
                                 <h3>{{$liste->intitule}}</h3>
                                 <h3>{{$liste->date}}</h3>
 
-                                <a href="{{route('GetPageUpdatePraticalWork',['id'=>$liste->id])}}">Modifier</a>
+                                <a href="{{route('GetPageUpdatePraticalWork',['id'=>$liste->id])}}">Modifier</a><br>
+                                <a href="{{route('getpage',['id'=>$liste->id])}}">Attribuer les notes</a>
 
                        @endforeach
             @else
+
                 <span>Aucun pratical work en base de donnee</span>
             @endif
 

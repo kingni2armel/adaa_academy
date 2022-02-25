@@ -17,5 +17,6 @@
 
         <a href="{{route('indexx',['id'=>$id=$_GET['id']])}}">Creer un travaille pratique</a><br>
         <a href="{{route('GetListePraticalOFid',['id'=>$id=$_GET['id']])}}">Liste des travaux pratiques</a><br> 
-        <a href="">Creer une seance</a>
+        <a href="{{route('GetPageCreateSeance',['id'=>$id=$_GET['id']])}}">Creer une seance</a><br>
+        <a href="{{route('GetListeSeance',['id'=>$id=$_GET['id']])}}">liste des seances</a>
 

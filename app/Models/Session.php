@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Session extends Model
 {
-    use HasFactory;
-  
     protected $fillable = [
         'intitule',
+        'course_id',
         'commentaire',
         'date_debut',
         'date_fin'
     ];
+
+    use HasFactory;
 }
